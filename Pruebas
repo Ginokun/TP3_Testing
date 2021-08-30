@@ -1,0 +1,10 @@
+Cuando se inicializa el controlador, todos los leds deben estar apagados.
+Prender un led.
+Apagar un led.
+Determinar si un led esta prendido.
+Determinar si un led esta apagado.
+Prender todos los leds en una sola operación.
+Apagar todos los leds en una sola operación.
+Ver si los indices corresponden con los leds.
+Secuencia del primero al ultimo.
+Prender un led sin afectar al resto.
