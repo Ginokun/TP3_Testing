@@ -8,3 +8,6 @@ Apagar todos los leds en una sola operación.
 Ver si los indices corresponden con los leds.
 Secuencia del primero al ultimo.
 Prender un led sin afectar al resto.
+Valores de borde para los parametros.
+Verificar que funcione con lógica positiva.
+Valores invalidos para los parametros.
