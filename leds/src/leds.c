@@ -24,7 +24,16 @@ void LedsTurnOff(int led)
     *puerto &= ~LedsIndexToMask(led);
 }
 
-void IsLedOn(int led)
+uint16_t IsLedOn(int led)
 {
     return ((*puerto) & LedsIndexToMask(led));
+}
+
+void TurnOnAllLeds(){
+
+    *puerto |= ALL_LEDS_ON_MASK;
+}
+
+void TurnOffAllLeds(){
+    *puerto &= ALL_LEDS_OFF_MASK;
 }

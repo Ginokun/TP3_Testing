@@ -14,6 +14,12 @@ void LedsTurnOn(int led);
 
 void LedsTurnOff(int led);
 
-void IsLedOn(int led);
+uint16_t IsLedOn(int led);
+
+uint16_t LedsIndexToMask(int led);
+
+void TurnOnAllLeds();
+
+void TurnOffAllLeds();
 
 #endif

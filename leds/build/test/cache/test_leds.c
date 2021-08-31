@@ -104,7 +104,7 @@ void test_TurnOffLed(void)
 
 
 
-void test_TurnOnOffLeds(void)
+void test_TurnOnOffLed(void)
 
 {
 
@@ -140,10 +140,78 @@ void test_IsLedOn(void)
 
 
 
-
+    LedsTurnOn(led);
 
 
 
     do {if ((IsLedOn(led))) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(83)));}} while(0);
+
+}
+
+
+
+
+
+void test_IsLedOff(void)
+
+{
+
+    const int led = 2;
+
+
+
+    LedsTurnOn(led);
+
+    LedsTurnOff(led);
+
+
+
+    do {if ((!IsLedOn(led))) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(94)));}} while(0);
+
+}
+
+
+
+
+
+
+
+void test_TurnOnAllLeds(void)
+
+{
+
+    TurnOnAllLeds();
+
+
+
+    UnityAssertEqualNumber((UNITY_INT)(UNITY_INT16)((0XFFFF)), (UNITY_INT)(UNITY_INT16)((ledsVirtuales)), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(103), UNITY_DISPLAY_STYLE_HEX16);
+
+}
+
+
+
+
+
+
+
+void test_TurnOffAllLeds(void)
+
+{
+
+    TurnOnAllLeds();
+
+    TurnOffAllLeds();
+
+
+
+    UnityAssertEqualNumber((UNITY_INT)(UNITY_INT16)((0X0000)), (UNITY_INT)(UNITY_INT16)((ledsVirtuales)), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(113), UNITY_DISPLAY_STYLE_HEX16);
 
 }

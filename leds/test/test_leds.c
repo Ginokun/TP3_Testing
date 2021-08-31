@@ -1,18 +1,3 @@
-/*
-Cuando se inicializa el controlador, todos los leds deben estar apagados.  <----------
-Prender un led. <----------
-Apagar un led.  <----------
-    Determinar si un led esta prendido.
-    Determinar si un led esta apagado.
-    Prender todos los leds en una sola operación.
-    Apagar todos los leds en una sola operación.
-Ver si los indices corresponden con los leds.
-Secuencia del primero al ultimo.
-Prender un led sin afectar al resto.    <----------
-Valores de borde para los parametros. /NOT/
-Verificar que funcione con lógica positiva.
-Valores invalidos para los parametros.
-*/
 
 #include "unity.h"
 #include "leds.h"
@@ -62,7 +47,7 @@ void test_TurnOffLed(void)
 
 /*Prender un led sin afectar al resto*/
 
-void test_TurnOnOffLeds(void)
+void test_TurnOnOffLed(void)
 {
 
     const int led = LED_ON_FIRST;
@@ -83,3 +68,32 @@ void test_IsLedOn(void)
     TEST_ASSERT_TRUE(IsLedOn(led));
 }
 
+/*Ver si un led se encuentra apagado*/
+void test_IsLedOff(void)
+{
+    const int led = LED_ON_FIRST;
+
+    LedsTurnOn(led);
+    LedsTurnOff(led);
+
+    TEST_ASSERT_TRUE(!IsLedOn(led));
+}
+
+/*Encender todos los leds*/
+
+void test_TurnOnAllLeds(void)
+{
+    TurnOnAllLeds();
+
+    TEST_ASSERT_EQUAL_HEX16(ALL_LEDS_ON_MASK, ledsVirtuales);
+}
+
+/*Apagar todos los leds*/
+
+void test_TurnOffAllLeds(void)
+{
+    TurnOnAllLeds();
+    TurnOffAllLeds();
+
+    TEST_ASSERT_EQUAL_HEX16(ALL_LEDS_OFF_MASK, ledsVirtuales);
+}

@@ -13,8 +13,11 @@ extern void tearDown(void);
 extern void test_LedsOffAfterCreate(void);
 extern void test_TurnOnLed(void);
 extern void test_TurnOffLed(void);
-extern void test_TurnOnOffLeds(void);
+extern void test_TurnOnOffLed(void);
 extern void test_IsLedOn(void);
+extern void test_IsLedOff(void);
+extern void test_TurnOnAllLeds(void);
+extern void test_TurnOffAllLeds(void);
 
 
 /*=======Mock Management=====*/
@@ -82,8 +85,11 @@ int main(void)
   run_test(test_LedsOffAfterCreate, "test_LedsOffAfterCreate", 36);
   run_test(test_TurnOnLed, "test_TurnOnLed", 45);
   run_test(test_TurnOffLed, "test_TurnOffLed", 55);
-  run_test(test_TurnOnOffLeds, "test_TurnOnOffLeds", 65);
+  run_test(test_TurnOnOffLed, "test_TurnOnOffLed", 65);
   run_test(test_IsLedOn, "test_IsLedOn", 77);
+  run_test(test_IsLedOff, "test_IsLedOff", 87);
+  run_test(test_TurnOnAllLeds, "test_TurnOnAllLeds", 99);
+  run_test(test_TurnOffAllLeds, "test_TurnOffAllLeds", 108);
 
   return UnityEnd();
 }
