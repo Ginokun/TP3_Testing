@@ -11,6 +11,10 @@ char* GlobalOrderError;
 extern void setUp(void);
 extern void tearDown(void);
 extern void test_LedsOffAfterCreate(void);
+extern void test_TurnOnLed(void);
+extern void test_TurnOffLed(void);
+extern void test_TurnOnOffLeds(void);
+extern void test_IsLedOn(void);
 
 
 /*=======Mock Management=====*/
@@ -26,9 +30,6 @@ static void CMock_Verify(void)
 static void CMock_Destroy(void)
 {
 }
-
-/*=======Teardown (stub)=====*/
-void tearDown(void) {}
 
 /*=======Test Reset Options=====*/
 void resetTest(void);
@@ -78,7 +79,11 @@ static void run_test(UnityTestFunction func, const char* name, UNITY_LINE_TYPE l
 int main(void)
 {
   UnityBegin("test_leds.c");
-  run_test(test_LedsOffAfterCreate, "test_LedsOffAfterCreate", 34);
+  run_test(test_LedsOffAfterCreate, "test_LedsOffAfterCreate", 36);
+  run_test(test_TurnOnLed, "test_TurnOnLed", 45);
+  run_test(test_TurnOffLed, "test_TurnOffLed", 55);
+  run_test(test_TurnOnOffLeds, "test_TurnOnOffLeds", 65);
+  run_test(test_IsLedOn, "test_IsLedOn", 77);
 
   return UnityEnd();
 }
