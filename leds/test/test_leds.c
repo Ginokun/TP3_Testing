@@ -3,7 +3,11 @@
 #include "leds.h"
 
 #define LED_ON_FIRST   2       //numero del led a testear si enciende.
+#define LED_ON_FIRST_MASK   0x0002  //mascara correspondiente al segundo led encendido y los demás apagados.
 #define LED_ON_SECOND   3       //numero del led a testear si enciende.
+#define LED_ON_SECOND_MASK   0x0004  //mascara correspondiente al segundo led encendido y los demás apagados.
+#define ALL_LEDS_OFF_MASK 0X0000    //mascara para apagar todos los leds.
+#define ALL_LEDS_ON_MASK 0XFFFF     //mascara para encender todos los leds.
 
 uint16_t ledsVirtuales;
 
@@ -32,7 +36,7 @@ void test_TurnOnLed(void)
 
     const int led = LED_ON_FIRST;
     LedsTurnOn(led);
-    TEST_ASSERT_EQUAL_HEX16(LedsIndexToMask(led), ledsVirtuales);
+    TEST_ASSERT_EQUAL_HEX16(LED_ON_FIRST_MASK, ledsVirtuales);
 }
 
 /*Apagar un led*/
@@ -55,7 +59,7 @@ void test_TurnOnOffLed(void)
     LedsTurnOn(LED_ON_SECOND);
     LedsTurnOff(LED_ON_SECOND);
 
-    TEST_ASSERT_EQUAL_HEX16(LedsIndexToMask(led), ledsVirtuales);
+    TEST_ASSERT_EQUAL_HEX16(LED_ON_FIRST_MASK, ledsVirtuales);
 }
 
 /*Ver si un led se encuentra prendido*/

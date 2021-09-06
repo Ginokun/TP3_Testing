@@ -1,8 +1,15 @@
 #include "leds.h"
 
+#define ALL_LEDS_OFF_MASK 0X0000
+#define ALL_LEDS_ON_MASK 0XFFFF
+#define LEDS_INDEX_OFFSET 1
+#define LEDS_STATE_ON 1
+
 static uint16_t *puerto;
 
-uint16_t LedsIndexToMask(int led)
+static uint16_t LedsIndexToMask(int led);
+
+static uint16_t LedsIndexToMask(int led)
 {
 
     return (LEDS_STATE_ON << (led - LEDS_INDEX_OFFSET));
